@@ -83,6 +83,31 @@ npm run package:mac
 
 The packaged app will be written to `dist/`.
 
+### Opening an unsigned build
+
+The released builds are signed but **not notarized**, so macOS Gatekeeper blocks
+the first launch. To open it:
+
+1. Right-click (or Control-click) **Tmux Helper.app** and choose **Open**.
+2. Confirm **Open** in the dialog.
+
+This only needs to be done once per install.
+
+## Updates
+
+The app checks GitHub Releases for updates on launch and can be triggered
+manually from **Tmux Helper → Check for Updates…** in the menu bar. When a newer
+version is found it downloads in the background and prompts to restart.
+
+To publish an update-capable release, bump the version, tag it, then run:
+
+```sh
+GH_TOKEN=<github-token> npm run publish:mac
+```
+
+This uploads the `.dmg`, `.zip`, and `latest-mac.yml` to the GitHub release — the
+`.zip` and `latest-mac.yml` are required for auto-update to work.
+
 ## Notes
 
 Attaching to a tmux session opens the configured terminal and runs:
