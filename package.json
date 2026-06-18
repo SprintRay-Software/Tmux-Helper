@@ -8,7 +8,8 @@
     "start": "electron .",
     "check": "node scripts/check-env.js",
     "package:mac": "electron-builder --mac",
-    "package:dir": "electron-builder --dir"
+    "package:dir": "electron-builder --dir",
+    "publish:mac": "electron-builder --mac --publish always"
   },
   "keywords": [
     "tmux",
@@ -25,6 +26,11 @@
     "appId": "dev.local.tmux-helper",
     "productName": "Tmux Helper",
     "asar": false,
+    "publish": {
+      "provider": "github",
+      "owner": "SprintRay-Software",
+      "repo": "Tmux-Helper"
+    },
     "files": [
       "!**/.cache/**",
       "!**/cache/**",
@@ -40,5 +46,8 @@
         "zip"
       ]
     }
+  },
+  "dependencies": {
+    "electron-updater": "^6.8.9"
   }
 }
