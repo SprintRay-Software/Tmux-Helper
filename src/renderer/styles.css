@@ -648,7 +648,9 @@ label,
 .control-surface {
   display: grid;
   gap: 18px;
+  align-self: start;
   min-height: 0;
+  max-height: 100%;
   overflow-y: auto;
   border: 1px solid #28312e;
   border-radius: 8px;
